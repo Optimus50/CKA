@@ -1,7 +1,9 @@
 <component name="ProjectDictionaryState">
   <dictionary name="BeOb">
     <words>
+      <w>busybox</w>
       <w>kubectl</w>
+      <w>mynamespace</w>
       <w>nginx</w>
       <w>replicaset</w>
     </words>
