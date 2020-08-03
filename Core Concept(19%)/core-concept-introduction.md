@@ -87,6 +87,14 @@ Keep this command at your finger tips
 ``kubectl delete``
 ``kubectl replace -f``
 ``kubectl scale --scale=(number of pods to be created)``
+``kubectl edit replicaset (name of the replicaset)``
+
+kubectl scale replicaset (name of replicaset) --replicas=2 or more, this command can also be used to scale down the number
+of pods if wanted
+
+
+
+
 
 
 
