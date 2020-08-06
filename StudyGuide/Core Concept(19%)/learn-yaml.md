@@ -10,9 +10,6 @@ Hash code is used for commenting
 
 
 
-
-
-
 Fruits:
   - Apple:
         Calories: 95

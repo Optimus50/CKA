@@ -93,8 +93,63 @@ kubectl scale replicaset (name of replicaset) --replicas=2 or more, this command
 of pods if wanted
 
 
+#### deployments
+
+rolling updates? 
+
+This is high up in the hierachy, creates a kubernetes object called deployment. 
 
 
+there are two types of deployment strategies
+  you deploy the old instances and install all new instance(recreate strategy)
+  updates is seamless, (rolling update), this is the default way of deployment.
+  
+  The following are necessary for deployments
+   `` kubectl create -f (deployment-definition.yaml)``
+   `` kubectl get deployments``
+   `` kubectl apply -f (deployment-definition.yaml)``
+   ``kubectl set image deployment/(app-name-in-the-deployment) (imageName=image)``
+   ``kubectl rollout status (deployment/(app-name-in-the-deployment))``
+   `` kubectl rollout  history     ""  /              ""``
+   ``kubectl rollout undo deployment/(appName)``
+  
+  
+  
+  ##Networking in Kubernetes
+  
+  each node always have an ip address, and this nodes has an network that consists of pods with its own ip address
+  You need a networking solution to manage network ips in each nodes, that use simple routing technique.
+  
+ ## Services
+ this enables communication from inside the cluster with the outside world, 
+ this is also an object, we have different type of services
+ ###### NodePort:  
+         NodePort opens a specific port on your node/VM and when that port gets traffic, that traffic is forwarded directly to the service.         
+         There are a few limitations and hence its not advised to use NodePort         
+         - only one service per port         
+         - You can only use ports 30000-32767         
+         - Dealing with changing node/VM IP is difficult
+         
+ ###### ClusterIP:
+ ClusterIP is the default kubernetes service. 
+ This service is created inside a cluster and can only be accessed by other pods in that cluster. 
+ So basically we use this type of service when we want to expose a service to other pods within the same cluster.  
+ This service is accessed using kubernetes proxy.      
+ 
+ 
+ ###### LoadBalancer
+ 
+ This is the standard way to expose service to the internet. All the traffic on the port is forwarded to the service.
+ It's designed to assign an external IP to act as a load balancer for the service.  
+ There's no filtering, no routing. LoadBalancer uses cloud service. 
+  we however have few limitations
+    - every service exposed will have its own ip address, this over time gets very expensive. 
+
+
+
+## Micro service architecture
+ the use of a sample application voting application
+  deployments is the best way of deployment application pods, as this also creates ReplicaSets
 
 
 
